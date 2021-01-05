@@ -1052,7 +1052,9 @@ ARGS is same as `all-the-icons-octicon' and others."
                      ('alltheicon
                       (apply #'all-the-icons-alltheicon icon-name args))
                      ('fileicon
-                      (apply #'all-the-icons-fileicon icon-name args)))))
+                      (apply #'all-the-icons-fileicon icon-name args))
+                     (t
+                      (apply (all-the-icons--function-name icon-set) icon-name args)))))
          (doom-modeline-propertize-icon icon face)))
      ;; Unicode fallback
      (and doom-modeline-unicode-fallback
